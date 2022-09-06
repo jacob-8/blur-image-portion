@@ -1,38 +1,11 @@
-# create-svelte
+# Blur Image Portion
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Use: https://blur-image-portion.vercel.app/
 
-## Creating a project
+Dev: `pnpm i` and `pnpm dev`
 
-If you're seeing this, you've probably already done this step. Congrats!
+Inspired by solutions in https://stackoverflow.com/questions/48563314/blur-part-of-the-image-with-javascript-jquery
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Not using
+- https://github.com/nhn/tui.image-editor
+- https://wesbos.com/javascript/10-harder-practice-exercises/55-face-detection-and-censorship
