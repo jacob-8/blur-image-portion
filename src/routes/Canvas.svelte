@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	export let imageObj: HTMLImageElement;
-	export let blurAmount = 10;
+	export let blurStrength = 10;
 
 	let canvas: HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D;
@@ -19,7 +19,6 @@
 	let h: number;
 
 	onMount(() => {
-		console.log(imageObj.width);
 		ctx = canvas.getContext('2d');
 		ctx.drawImage(imageObj, 0, 0);
 	});
@@ -30,11 +29,11 @@
 		}
 	) {
 		if (drag) {
-			ctx.filter = `blur(${blurAmount}px)`;
+			ctx.filter = `blur(${blurStrength}px)`;
 			ctx.drawImage(imageObj, 0, 0);
 			rect.w = e.pageX - canvas.offsetLeft - rect.startX;
 			rect.h = e.pageY - canvas.offsetTop - rect.startY;
-			ctx.strokeStyle = 'blue';
+			// ctx.strokeStyle = 'blue';
 
 			if (rect.w > 0 && rect.h > 0) {
 				imgDrow = ctx.getImageData(rect.startX, rect.startY, rect.w, rect.h);
@@ -48,10 +47,21 @@
 			if (imgDrow) {
 				ctx.putImageData(imgDrow, w, h);
 			}
-			ctx.strokeRect(rect.startX, rect.startY, rect.w, rect.h);
+			// ctx.strokeRect(rect.startX, rect.startY, rect.w, rect.h);
 		}
 	}
+
+	function download() {
+		var link = document.createElement('a');
+		link.download = 'filename.png';
+		link.href = canvas.toDataURL();
+		link.click();
+	}
 </script>
+
+<p class="mb-2">
+	Drag over portion to blur, then <button type="button" class="font-semibold text-blue-600" on:click={download}>download</button>
+</p>
 
 <!-- class="max-w-full max-h-[90vh]" -->
 <canvas

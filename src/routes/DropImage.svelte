@@ -38,7 +38,7 @@
 		class:dragging
 		class="fixed inset-0 text-gray-600 border-transparent
 h-full flex flex-col items-center justify-center border-10 border-dashed
-cursor-pointer"
+cursor-pointer z-0"
 		on:drop|preventDefault={(e) => handleImage(e.dataTransfer.files)}
 		on:dragover|preventDefault={() => (dragging = true)}
 		on:dragleave|preventDefault={() => (dragging = false)}
