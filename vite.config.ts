@@ -1,8 +1,15 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
+import { SvelteScopedUno } from 'svelte-scoped-uno';
 
-const config: UserConfig = {
-	plugins: [sveltekit()]
-};
-
-export default config;
+export default defineConfig({
+	plugins: [
+		SvelteScopedUno(
+			{ addReset: 'tailwind' }
+		),
+		sveltekit()
+	],
+	test: {
+		include: ['src/**/*.{test,spec}.{js,ts}']
+	}
+});

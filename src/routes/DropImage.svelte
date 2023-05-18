@@ -56,6 +56,6 @@ cursor-pointer z-0"
 
 <style>
 	.dragging {
-		@apply bg-orange-100 !border-orange-300 !text-orange-700;
+		--at-apply: "bg-orange-100 !border-orange-300 !text-orange-700";
 	}
 </style>
